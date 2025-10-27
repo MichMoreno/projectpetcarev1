@@ -38,7 +38,7 @@ public class usuariosControlador {
 
     @DeleteMapping("/delete-users/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void eliminarUsuarios(@RequestBody Long id) {
+    public void eliminarUsuarios(@PathVariable Long id) {
         usuariosServicio.eliminarUsuario(id);
         return;
     }
