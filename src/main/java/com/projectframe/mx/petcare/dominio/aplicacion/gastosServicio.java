@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface gastosServicio {
     public gastos guardarGastos(gastos gastos);
-    public List<gastos> obtenerGastosServicio();
+    public List<gastos> obtenerGastos();
     public gastos obtenerGastosPorId(Long id);
     public void eliminarGastos(Long id);
 }
