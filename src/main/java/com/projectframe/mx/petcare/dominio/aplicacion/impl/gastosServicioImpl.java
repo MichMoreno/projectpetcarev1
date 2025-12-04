@@ -23,7 +23,7 @@ public class gastosServicioImpl implements gastosServicio {
     }
 
     @Override
-    public List<gastos> obtenerGastosServicio() {
+    public List<gastos> obtenerGastos() {
         return (List<gastos>) gasRepo.findAll();
     }
 
