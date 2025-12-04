@@ -35,6 +35,5 @@ public class usuariosServicioImpl implements usuariosServicio {
     @Override
     public void eliminarUsuario(Long id) {
         usersRepo.deleteById(id);
-        return;
     }
 }
