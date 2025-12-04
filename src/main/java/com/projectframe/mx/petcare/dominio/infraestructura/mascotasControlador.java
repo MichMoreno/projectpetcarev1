@@ -4,7 +4,7 @@ import com.projectframe.mx.petcare.dominio.aplicacion.mascotasServicio;
 import com.projectframe.mx.petcare.dominio.aplicacion.usuariosServicio;
 import com.projectframe.mx.petcare.dominio.entidades.mascotas;
 import com.projectframe.mx.petcare.dominio.entidades.usuarios;
-import com.projectframe.mx.petcare.dominio.repositorios.mascotasRepositorio;
+
 
 import com.projectframe.mx.petcare.dominio.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
