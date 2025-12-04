@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("petcare/api")
+@RequestMapping("api/petcare")
 public class usuariosControlador {
     @Autowired
     private EmailService emailService;

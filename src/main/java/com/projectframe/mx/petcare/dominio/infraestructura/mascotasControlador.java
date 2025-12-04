@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("petcare/api")
+@RequestMapping("api/petcare")
 public class mascotasControlador {
     @Autowired
     private EmailService emailService;
@@ -32,8 +32,8 @@ public class mascotasControlador {
     @PostMapping("/create-mascota")
     @ResponseStatus(HttpStatus.OK)
     public mascotas guardarMascotas(@RequestBody mascotas mascotas) {
-        String texto = "Se ha registrado este correo electronico exitosamente en nuestra base de datos";
-        /*EmailUser = mascotas.getUsuarioId();
+        /*String texto = "Se ha registrado este correo electronico exitosamente en nuestra base de datos";
+        EmailUser = mascotas.getUsuarioId();
         String to = mascotas.
         String subject = "Registro en Administracion Eventos";
 

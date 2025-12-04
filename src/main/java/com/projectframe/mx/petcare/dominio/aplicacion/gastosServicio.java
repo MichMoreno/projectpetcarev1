@@ -10,5 +10,5 @@ public interface gastosServicio {
     public gastos guardarGastos(gastos gastos);
     public List<gastos> obtenerGastosServicio();
     public gastos obtenerGastosPorId(Long id);
-    public void eliminarGastos(gastos gastos);
+    public void eliminarGastos(Long id);
 }

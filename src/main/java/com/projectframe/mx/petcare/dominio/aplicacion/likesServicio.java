@@ -10,5 +10,5 @@ public interface likesServicio {
     public likes guardarLikes(likes likes);
     public List<likes> obtenerLikes();
     public likes obtenerLikesPorId(Long id);
-    public void eliminarLikes();
+    public void eliminarLikes(Long id);
 }
