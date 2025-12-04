@@ -42,7 +42,7 @@ public class coloniasControlador {
         return coloniasServicio.guardarColonia(col);
     }
 
-    @DeleteMapping("delete-colonia/{id}")
+    @DeleteMapping("/delete-colonia/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void eliminarColonia(@PathVariable Long id) {
         coloniasServicio.eliminarColonia(id);
