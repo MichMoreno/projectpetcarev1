@@ -1,0 +1,51 @@
+package com.projectframe.mx.petcare.dominio.infraestructura;
+
+import com.projectframe.mx.petcare.dominio.aplicacion.postColoniaImagesServicio;
+import com.projectframe.mx.petcare.dominio.entidades.postColoniaImages;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("api/petcare")
+public class postColoniaImagesControlador {
+    @Autowired
+    private postColoniaImagesServicio postColoniaImagesServicio;
+
+    @GetMapping("/allpost-colonia-images")
+    @ResponseStatus(HttpStatus.OK)
+    public List<postColoniaImages> obtenerPostColoniaImages() {
+        return postColoniaImagesServicio.obtenerPostColoniaImages();
+    }
+
+    @GetMapping("/post-colonia-images/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public postColoniaImages obtenerPostColoniaImages(@PathVariable Long id) {
+        return postColoniaImagesServicio.obtenerPostColoniaImagesPorId(id);
+    }
+
+    @PostMapping("/create-post-colonia-images")
+    @ResponseStatus(HttpStatus.OK)
+    public postColoniaImages guardarPostColoniaImages(@RequestBody postColoniaImages postColoniaImages) {
+        return postColoniaImagesServicio.guardarPostColoniaImages(postColoniaImages);
+    }
+
+    @PutMapping("/update-post-colonia-images/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public postColoniaImages actualizarPostColoniaImages(@PathVariable Long id, @RequestBody postColoniaImages postColoniaImages) {
+        postColoniaImages pci = postColoniaImagesServicio.obtenerPostColoniaImagesPorId(id);
+        pci.setPostColoniaId(postColoniaImages.getPostColoniaId());
+        pci.setUsuarioId(postColoniaImages.getUsuarioId());
+        pci.setImagePath(postColoniaImages.getImagePath());
+        pci.setFechaCreacion(postColoniaImages.getFechaCreacion());
+        return postColoniaImagesServicio.guardarPostColoniaImages(pci);
+    }
+
+    @DeleteMapping("/delete-post-colonia-images/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deletePostColoniaImages(@PathVariable Long id) {
+        postColoniaImagesServicio.eliminarPostColoniaImages(id);
+    }
+}
