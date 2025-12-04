@@ -32,7 +32,7 @@ public class gastosControlador {
         return gastosServicio.guardarGastos(gastos);
     }
 
-    @PutMapping("/update-gasto")
+    @PutMapping("/update-gasto/{id}")
     @ResponseStatus(HttpStatus.OK)
     public gastos actualizarGasto(@RequestBody gastos gastos, @PathVariable Long id){
         gastos gas = gastosServicio.obtenerGastosPorId(id);
@@ -44,7 +44,7 @@ public class gastosControlador {
         gas.setFecha(gastos.getFecha());
         gas.setFechaRecordatorio(gastos.getFechaRecordatorio());
         gas.setFechaCreacion(gastos.getFechaCreacion());
-        return gastosServicio.guardarGastos(gastos);
+        return gastosServicio.guardarGastos(gas);
     }
 
     @DeleteMapping("/delete-gasto/{id}")
