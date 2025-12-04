@@ -32,7 +32,7 @@ public class presupuestosControlador {
         return presupuestosServicio.guardarPresupuestos(presupuestos);
     }
 
-    @PutMapping("/update-presupuesto")
+    @PutMapping("/update-presupuesto/{id}")
     @ResponseStatus(HttpStatus.OK)
     public presupuestos actualizarPresupuesto(@RequestBody presupuestos presupuestos, @PathVariable Long id){
         presupuestos pre = presupuestosServicio.obtenerPresupuestosPorId(id);
@@ -43,7 +43,7 @@ public class presupuestosControlador {
         return presupuestosServicio.guardarPresupuestos(pre);
     }
 
-    @DeleteMapping("/delete-presupuesto")
+    @DeleteMapping("/delete-presupuesto/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void eliminarPresupuesto(@PathVariable Long id){
         presupuestosServicio.eliminarPresupuestos(id);
