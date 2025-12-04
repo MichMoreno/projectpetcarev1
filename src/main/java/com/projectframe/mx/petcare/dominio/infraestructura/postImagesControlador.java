@@ -46,4 +46,5 @@ public class postImagesControlador {
     public void deletePostImage(@PathVariable Long id){
         postImagesServicio.eliminarPostImagesPorId(id);
     }
+
 }
