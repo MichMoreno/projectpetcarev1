@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -51,18 +52,18 @@ public class mascotas implements Serializable {
     private Long usuarioId;
 
     @Column(name = "fecha_registro", nullable = false)
-    private Date fechaRegistro;
+    private LocalDate fechaRegistro;
 
     private Boolean tieneSeguro = false;
 
     @PrePersist
     protected void onCreate() {
-        fechaRegistro = new Date();
+        fechaRegistro = LocalDate.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        fechaRegistro = new Date();
+        fechaRegistro = LocalDate.now();
     }
 
     public enum Genero {

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -29,15 +30,15 @@ public class comments implements Serializable {
     private String contenido;
 
     @Temporal(TemporalType.DATE)
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @PrePersist
     public void prePersist() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
     @PreUpdate
     public void preUpdate() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
 }
 

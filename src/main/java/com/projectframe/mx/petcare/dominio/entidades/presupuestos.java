@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -29,11 +30,11 @@ public class presupuestos implements Serializable {
     private Double monto;
 
     @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @PrePersist
-    protected void onCreate() { createdAt = new Date(); }
+    protected void onCreate() { createdAt = LocalDate.now(); }
 
     @PreUpdate
-    protected void onUpdate() { createdAt = new Date(); }
+    protected void onUpdate() { createdAt = LocalDate.now(); }
 }

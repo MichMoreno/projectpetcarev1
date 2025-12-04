@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -25,14 +26,14 @@ public class imagenesMascota {
     private String ruta;
 
     @Column(name = "fecha_subida", nullable = false)
-    private Date fechaSubida;
+    private LocalDate fechaSubida;
 
     @PrePersist
     public void prePersist() {
-        fechaSubida = new Date();
+        fechaSubida = LocalDate.now();
     }
     @PreUpdate
     public void preUpdate() {
-        fechaSubida = new Date();
+        fechaSubida = LocalDate.now();
     }
 }

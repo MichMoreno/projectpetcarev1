@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -33,10 +34,10 @@ public class solicitudesAdopcion implements Serializable {
     private Estado estado = Estado.pendiente;
 
     @Column(name = "fecha_solicitud", nullable = false)
-    private Date fechaSolicitud;
+    private LocalDate fechaSolicitud;
 
     @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+    private LocalDate createdAt;
 
     public enum Estado {
         pendiente, aceptada, rechazada
@@ -44,13 +45,13 @@ public class solicitudesAdopcion implements Serializable {
 
     @PrePersist
     protected void onCreate() {
-        fechaSolicitud = new Date();
-        createdAt = new Date();
+        fechaSolicitud = LocalDate.now();
+        createdAt = LocalDate.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        createdAt = new Date();
+        createdAt = LocalDate.now();
     }
 }
 

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -30,5 +30,5 @@ public class adopciones implements Serializable {
     private Boolean disponible = true;
 
     @Column(name = "fecha_publicacion", nullable = false)
-    private LocalDateTime fechaPublicacion = LocalDateTime.now();
+    private LocalDate fechaPublicacion = LocalDate.now();
 }

@@ -9,7 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 @Data
 @AllArgsConstructor
@@ -49,7 +50,7 @@ public class usuarios implements Serializable {
     private Boolean verificado = false;
 
     @Column(name = "fecha_registro", nullable = false)
-    private LocalDateTime fechaRegistro = LocalDateTime.now();
+    private LocalDate fechaRegistro = LocalDate.now();
 
     @Column(name = "foto_perfil")
     private String fotoPerfil;

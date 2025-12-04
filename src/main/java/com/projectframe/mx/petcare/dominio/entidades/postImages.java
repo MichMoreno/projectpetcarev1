@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -26,15 +27,15 @@ public class postImages implements Serializable {
     private String imagePath;
 
     @Column(name = "created_at", nullable = false)
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @Column(name = "user_id", nullable = false)
     private Long usuarioId;
 
 
     @PrePersist
-    protected void onCreate() { fechaCreacion = new Date(); }
+    protected void onCreate() { fechaCreacion = LocalDate.now(); }
 
     @PreUpdate
-    protected void onUpdate() { fechaCreacion = new Date();}
+    protected void onUpdate() { fechaCreacion = LocalDate.now(); }
 }

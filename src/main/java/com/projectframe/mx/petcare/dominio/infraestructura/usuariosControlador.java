@@ -4,6 +4,7 @@ import com.projectframe.mx.petcare.dominio.aplicacion.usuariosServicio;
 import com.projectframe.mx.petcare.dominio.entidades.usuarios;
 import com.projectframe.mx.petcare.dominio.repositorios.usuariosRepositorio;
 
+import com.projectframe.mx.petcare.dominio.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("petcare/api")
 public class usuariosControlador {
+    @Autowired
+    private EmailService emailService;
     @Autowired
     private usuariosRepositorio usersRepo;
     @Autowired
@@ -33,6 +36,12 @@ public class usuariosControlador {
     @PostMapping("/create-user")
     @ResponseStatus(HttpStatus.CREATED)
     public usuarios crearUsuario(@RequestBody usuarios usuario) {
+        String to = usuario.getEmail();
+        String texto = "Se ha registrado este correo electronico: " + to + " exitosamente en nuestra base de datos";
+        String subject = "Registro en Administracion Eventos";
+
+        emailService.sendEmail(to,subject,texto);
+
         return usuariosServicio.guardarUsuario(usuario);
     }
 

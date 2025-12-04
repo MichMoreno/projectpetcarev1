@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -29,15 +30,15 @@ public class postsColonia implements Serializable {
     private String contenido;
 
     @Column(name = "created_at", nullable = false)
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @Column(name = "es_alerta")
     private Boolean esAlerta = false;
 
     @PrePersist
-    protected void onCreate() { fechaCreacion = new Date(); }
+    protected void onCreate() { fechaCreacion = LocalDate.now(); }
 
     @PreUpdate
-    protected void onUpdate() { fechaCreacion = new Date(); }
+    protected void onUpdate() { fechaCreacion = LocalDate.now(); }
 }
 

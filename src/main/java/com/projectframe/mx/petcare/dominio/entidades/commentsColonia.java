@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -30,14 +30,14 @@ public class commentsColonia {
     private String contenido;
 
     @Temporal(TemporalType.DATE)
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @PrePersist
     public void prePersist() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
     @PreUpdate
     public void preUpdate() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
 }

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -39,17 +40,17 @@ public class gastos implements Serializable {
     private String proveedor;
 
     @Column(name = "fecha_recordatorio")
-    private Date fechaRecordatorio;
+    private LocalDate fechaRecordatorio;
 
     @Column(name = "created_at", nullable = false)
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @PrePersist
     public void prePersist() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
     @PreUpdate
     public void preUpdate() {
-        fechaCreacion = new Date();
+        fechaCreacion = LocalDate.now();
     }
 }
