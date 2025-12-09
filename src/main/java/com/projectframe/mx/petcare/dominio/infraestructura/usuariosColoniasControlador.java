@@ -33,7 +33,7 @@ public class usuariosColoniasControlador {
         return usuariosColoniasServicio.guardarUsuariosColonias(usuariosColonias);
     }
 
-    @PutMapping("/update-usuarios-colonias")
+    @PutMapping("/update-usuarios-colonias/{id}")
     @ResponseStatus(HttpStatus.OK)
     public usuariosColonias actualizarUsuarioColonia(@RequestBody usuariosColonias usuariosColonias, @PathVariable Long id){
         usuariosColonias uc =  usuariosColoniasServicio.obtenerUsuariosColoniasPorId(id);
