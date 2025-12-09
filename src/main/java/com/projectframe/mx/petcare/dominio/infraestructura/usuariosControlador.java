@@ -75,6 +75,12 @@ public class usuariosControlador {
         return usuariosServicio.guardarUsuario(u);
     }
 
+    @PostMapping("/create-user/photo-profile")
+    @ResponseStatus(HttpStatus.OK)
+    public usuarios guardarUsuarioPhoto(@RequestBody usuarios usuario) {
+        return usuariosServicio.guardarUsuario(usuario);
+    }
+
 
 
 }

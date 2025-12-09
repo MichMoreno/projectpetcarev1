@@ -23,7 +23,7 @@ public class presupuestos implements Serializable {
     @Column(name = "usuario_id", nullable = false)
     private Long usuarioId;
 
-    @Column(nullable = false, length = 7)
+    @Column(nullable = false, length = 10)
     private String mes;
 
     @Column(nullable = false)
