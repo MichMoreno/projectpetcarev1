@@ -1,7 +1,9 @@
 package com.projectframe.mx.petcare.dominio.infraestructura;
 
 import com.projectframe.mx.petcare.dominio.aplicacion.tratamientosServicio;
+import com.projectframe.mx.petcare.dominio.aplicacion.usuariosServicio;
 import com.projectframe.mx.petcare.dominio.entidades.tratamientos;
+import com.projectframe.mx.petcare.dominio.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,11 @@ import java.util.List;
 public class tratamientosControlador {
     @Autowired
     private tratamientosServicio tratamientosServicio;
+
+    @Autowired
+    private usuariosServicio usuariosServicio;
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping("/alltratamientos")
     @ResponseStatus(HttpStatus.OK)
